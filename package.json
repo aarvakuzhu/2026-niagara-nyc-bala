@@ -1,0 +1,27 @@
+{
+  "name": "2026-niagara-nyc-bala",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aarvakuzhu/2026-niagara-nyc-bala.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aarvakuzhu/2026-niagara-nyc-bala/issues"
+  },
+  "homepage": "https://github.com/aarvakuzhu/2026-niagara-nyc-bala#readme",
+  "dependencies": {
+    "express": "^4.22.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
