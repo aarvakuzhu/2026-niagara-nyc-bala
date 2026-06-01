@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Niagara + NYC · June 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0f0e0c;
+      --paper: #f5f0e8;
+      --cream: #ede8dc;
+      --water: #1a4a6b;
+      --water-light: #2d6e9e;
+      --mist: #b8d4e8;
+      --gold: #c4922a;
+      --gold-light: #e8b84b;
+      --red: #c0392b;
+      --green: #2d6a4f;
+      --border: #d4cfc4;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* HERO */
+    .hero {
+      background: var(--water);
+      color: white;
+      padding: 60px 40px 50px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse at 20% 80%, rgba(180,210,232,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(196,146,42,0.1) 0%, transparent 50%);
+    }
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--mist);
+      margin-bottom: 16px;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 7vw, 76px);
+      font-weight: 900;
+      line-height: 1.0;
+      margin-bottom: 8px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .hero-sub {
+      font-size: 15px;
+      color: var(--mist);
+      margin-top: 20px;
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .hero-sub span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 20px 0;
+    }
+
+    /* LAYOUT */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* SECTION HEADERS */
+    .section {
+      padding: 48px 0 32px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section:last-child { border-bottom: none; }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--water-light);
+      margin-bottom: 6px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      color: var(--ink);
+    }
+
+    /* CONFIRMED BOOKINGS GRID */
+    .bookings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .booking-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .booking-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--green);
+    }
+    .booking-card.flight::before { background: var(--water); }
+    .booking-card.car::before { background: var(--gold); }
+    .booking-icon {
+      font-size: 22px;
+      margin-bottom: 8px;
+      display: block;
+    }
+    .booking-title {
+      font-size: 13px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--water);
+      margin-bottom: 6px;
+    }
+    .booking-detail {
+      font-size: 14px;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    .booking-detail strong { font-weight: 500; }
+    .booking-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: #888;
+      margin-top: 6px;
+    }
+    .confirmed-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--green);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-top: 8px;
+    }
+    .confirmed-badge::before {
+      content: '✓';
+      font-size: 10px;
+    }
+
+    /* DAYS */
+    .day-block {
+      margin-bottom: 40px;
+    }
+    .day-header {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--ink);
+    }
+    .day-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--cream);
+      -webkit-text-stroke: 2px var(--ink);
+      line-height: 1;
+    }
+    .day-info {}
+    .day-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--water-light);
+    }
+    .day-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .day-route {
+      font-size: 12px;
+      color: #888;
+      font-family: 'DM Mono', monospace;
+      margin-top: 2px;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      list-style: none;
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--border);
+      align-items: start;
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-time {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--gold);
+      font-weight: 500;
+      padding-top: 2px;
+      white-space: nowrap;
+    }
+    .timeline-content {
+      font-size: 14px;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    .timeline-content strong {
+      font-weight: 500;
+    }
+    .timeline-content .note {
+      font-size: 12px;
+      color: #777;
+      margin-top: 2px;
+    }
+    .highlight {
+      background: #fff8ec;
+      border-left: 3px solid var(--gold);
+      padding: 8px 12px;
+      border-radius: 0 4px 4px 0;
+      margin: 4px 0;
+    }
+    .highlight strong { color: var(--water); }
+
+    /* FLEXIBLE STOP TABLE */
+    .flex-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin: 16px 0;
+    }
+    .flex-table th {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      text-align: left;
+      padding: 6px 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .flex-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--cream);
+      vertical-align: top;
+    }
+    .flex-table tr.recommended td {
+      background: #f0f8ff;
+      font-weight: 500;
+    }
+    .flex-table tr.recommended td:first-child::after {
+      content: ' ✓';
+      color: var(--green);
+      font-size: 11px;
+    }
+
+    /* TODO LIST */
+    .todo-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+    .todo-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 16px;
+    }
+    .todo-priority {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-top: 4px;
+      flex-shrink: 0;
+    }
+    .priority-red { background: var(--red); }
+    .priority-yellow { background: var(--gold); }
+    .priority-green { background: var(--green); }
+    .todo-content {}
+    .todo-what {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .todo-where {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--water-light);
+      margin-top: 2px;
+    }
+    .todo-when {
+      font-size: 12px;
+      color: #777;
+      margin-top: 2px;
+    }
+
+    /* ADDRESSES */
+    .address-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+    }
+    .address-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 14px 16px;
+    }
+    .address-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--water-light);
+      margin-bottom: 4px;
+    }
+    .address-name {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+    .address-street {
+      font-size: 12px;
+      color: #666;
+      line-height: 1.4;
+    }
+    .address-phone {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--water);
+      margin-top: 4px;
+    }
+
+    /* COST TABLE */
+    .cost-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .cost-table td {
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--border);
+    }
+    .cost-table td:last-child {
+      text-align: right;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--water);
+    }
+    .cost-table tr.total td {
+      border-top: 2px solid var(--ink);
+      border-bottom: none;
+      font-weight: 500;
+      padding-top: 12px;
+    }
+
+    /* APPS */
+    .apps-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .app-chip {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ROUTE BANNER */
+    .route-banner {
+      background: var(--ink);
+      color: white;
+      padding: 24px 32px;
+      border-radius: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      line-height: 2;
+      margin: 24px 0;
+    }
+    .route-banner .route-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .route-banner .city {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gold-light);
+    }
+    .route-banner .arrow {
+      color: #555;
+    }
+    .route-banner .road {
+      color: #888;
+      font-size: 11px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink);
+      color: #888;
+      text-align: center;
+      padding: 32px;
+      font-size: 12px;
+      font-family: 'DM Mono', monospace;
+      letter-spacing: 0.05em;
+    }
+    footer span { color: var(--gold-light); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-inner > * {
+      animation: fadeUp 0.6s ease both;
+    }
+    .hero-inner > *:nth-child(1) { animation-delay: 0.1s; }
+    .hero-inner > *:nth-child(2) { animation-delay: 0.2s; }
+    .hero-inner > *:nth-child(3) { animation-delay: 0.3s; }
+    .hero-inner > *:nth-child(4) { animation-delay: 0.4s; }
+    .hero-inner > *:nth-child(5) { animation-delay: 0.5s; }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .hero { padding: 40px 20px; }
+      .container { padding: 0 16px; }
+      .timeline-item { grid-template-columns: 60px 1fr; }
+      .day-number { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">📍 Cumming, GA → Niagara Falls, NY → New York City, NY</div>
+    <h1>Niagara &amp; <em>New York</em></h1>
+    <div class="hero-divider"></div>
+    <div class="hero-sub">
+      <span>🗓 June 1–5, 2026</span>
+      <span>👥 5 Travelers</span>
+      <span>🚗 Drive Up · ✈️ Fly Back</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- CONFIRMED BOOKINGS -->
+  <div class="section">
+    <div class="section-label">All confirmed</div>
+    <div class="section-title">Booked &amp; Ready</div>
+    <div class="bookings-grid">
+
+      <div class="booking-card car">
+        <span class="booking-icon">🚗</span>
+        <div class="booking-title">Avis Rental — Pickup</div>
+        <div class="booking-detail">518 Atlanta Rd, Cumming GA</div>
+        <div class="booking-meta">Mon Jun 1 · 5:30 PM · ☎ 678-341-6857</div>
+        <div class="confirmed-badge">Confirmed</div>
+      </div>
+
+      <div class="booking-card car">
+        <span class="booking-icon">🔑</span>
+        <div class="booking-title">Avis Rental — Drop Off</div>
+        <div class="booking-detail">1120 South Ave, Staten Island NY<br><em>Next door to hotel ✅</em></div>
+        <div class="booking-meta">Fri Jun 5 · by 12:00 PM · ☎ 718-698-1470</div>
+        <div class="confirmed-badge">Confirmed</div>
+      </div>
+
+      <div class="booking-card">
+        <span class="booking-icon">🌊</span>
+        <div class="booking-title">Niagara Hotel</div>
+        <div class="booking-detail"><strong>SureStay Plus by Best Western</strong><br>9100 Niagara Falls Blvd, NY</div>
+        <div class="booking-meta">Check-in Wed Jun 3 · 3:00 PM<br>Checkout Thu Jun 4 · 11:00 AM · ☎ 716-297-9902</div>
+        <div class="confirmed-badge">Confirmed</div>
+      </div>
+
+      <div class="booking-card">
+        <span class="booking-icon">🗽</span>
+        <div class="booking-title">NYC Hotel — 2 Rooms</div>
+        <div class="booking-detail"><strong>Hilton Garden Inn Staten Island</strong><br>1100 South Ave, Staten Island NY</div>
+        <div class="booking-meta">Check-in Thu Jun 4 · 4:00 PM<br>Checkout Fri Jun 5 · 11:00 AM · ☎ 718-477-2400</div>
+        <div class="confirmed-badge">Confirmed</div>
+      </div>
+
+      <div class="booking-card flight">
+        <span class="booking-icon">✈️</span>
+        <div class="booking-title">Return Flight</div>
+        <div class="booking-detail"><strong>Frontier F93453</strong><br>LGA 6:49 PM → ATL 9:56 PM</div>
+        <div class="booking-meta">Fri Jun 5 · Confirmation: XK4URQ · Nonstop · 2h 56m</div>
+        <div class="confirmed-badge">Confirmed</div>
+      </div>
+
+      <div class="booking-card" style="border: 2px dashed var(--border); background: var(--cream);">
+        <span class="booking-icon">🛏</span>
+        <div class="booking-title">Tuesday Night Stop</div>
+        <div class="booking-detail">Flexible — drive as far as comfortable on I-75 North. Book on the road.</div>
+        <div class="booking-meta">Target: Columbus or Cleveland, OH</div>
+        <div style="font-size:11px; color: var(--gold); margin-top:8px; font-weight:500;">⏳ Book on the road</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ITINERARY -->
+  <div class="section">
+    <div class="section-label">Day by day</div>
+    <div class="section-title">Full Itinerary</div>
+
+    <!-- DAY 1 -->
+    <div class="day-block">
+      <div class="day-header">
+        <div class="day-number">01</div>
+        <div class="day-info">
+          <div class="day-date">Monday, June 1</div>
+          <div class="day-title">Pick Up &amp; Prep</div>
+          <div class="day-route">Cumming, GA</div>
+        </div>
+      </div>
+      <ul class="timeline">
+        <li class="timeline-item">
+          <div class="timeline-time">5:30 PM</div>
+          <div class="timeline-content">
+            <strong>🚗 Pick up Avis minivan</strong> — 518 Atlanta Rd, Cumming GA
+            <div class="note">☎ 678-341-6857 · Hours: Mon–Fri 8am–6pm</div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">Evening</div>
+          <div class="timeline-content">
+            Load luggage, fuel up, prep snacks and car playlist for early morning
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">Night</div>
+          <div class="timeline-content">🏠 Sleep at home in Cumming. Depart 7:00 AM Tuesday.</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="day-block">
+      <div class="day-header">
+        <div class="day-number">02</div>
+        <div class="day-info">
+          <div class="day-date">Tuesday, June 2</div>
+          <div class="day-title">The Long Drive North</div>
+          <div class="day-route">Cumming GA → I-75 N → Ohio</div>
+        </div>
+      </div>
+      <ul class="timeline">
+        <li class="timeline-item">
+          <div class="timeline-time">7:00 AM</div>
+          <div class="timeline-content">
+            <strong>🚗 Depart Cumming</strong> — GA-400 South → I-285 West → I-75 North
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">~8:30 AM</div>
+          <div class="timeline-content">
+            ☕ Rest stop — <strong>Chattanooga, TN</strong> (~1.5 hrs). Fuel + stretch.
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">~10:30 AM</div>
+          <div class="timeline-content">
+            🚻 Rest stop — <strong>Knoxville, TN</strong> (~3 hrs). Snacks + bathroom.
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">~12:30 PM</div>
+          <div class="timeline-content">
+            🍔 Lunch stop — <strong>Lexington, KY</strong> (~5 hrs). Good exits off I-75.
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">~2:30 PM</div>
+          <div class="timeline-content">
+            <div class="highlight">
+              <strong>Flexible overnight stop — drive until tired, then stop</strong>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <table class="flex-table" style="margin-top:16px;">
+        <thead>
+          <tr>
+            <th>Location</th>
+            <th>Drive from Cumming</th>
+            <th>Arrive</th>
+            <th>Left to Niagara Wed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cincinnati, OH</td>
+            <td>~7 hrs</td>
+            <td>~2:00 PM</td>
+            <td>~7.5 hrs</td>
+          </tr>
+          <tr class="recommended">
+            <td>Columbus, OH</td>
+            <td>~7.5 hrs</td>
+            <td>~2:30 PM</td>
+            <td>~6 hrs ✅</td>
+          </tr>
+          <tr class="recommended">
+            <td>Cleveland, OH</td>
+            <td>~9.5 hrs</td>
+            <td>~4:30 PM</td>
+            <td>~2.5 hrs ✅</td>
+          </tr>
+          <tr>
+            <td>Erie, PA</td>
+            <td>~10.5 hrs</td>
+            <td>~5:30 PM</td>
+            <td>~1.5 hrs</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="font-size:12px; color:#777; margin-top:8px;">💡 Look for Hampton Inn, Hilton Garden Inn, or Courtyard Marriott off I-71/I-75. Book on Hotels.com app when you stop.</div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="day-block">
+      <div class="day-header">
+        <div class="day-number">03</div>
+        <div class="day-info">
+          <div class="day-date">Wednesday, June 3</div>
+          <div class="day-title">Arrive Niagara Falls</div>
+          <div class="day-route">Ohio → I-90 East → Niagara Falls, NY</div>
+        </div>
+      </div>
+      <ul class="timeline">
+        <li class="timeline-item">
+          <div class="timeline-time">7:30 AM</div>
+          <div class="timeline-content">
+            <strong>🚗 Depart overnight stop</strong> — I-90 East along Lake Erie. Scenic drive.
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">En route</div>
+          <div class="timeline-content">Rest stop in Pennsylvania or Buffalo area</div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">~1:30 PM</div>
+          <div class="timeline-content">
+            <strong>👀 Arrive Niagara Falls, NY</strong> — first look at the falls. Walk to <strong>Prospect Point, Niagara Falls State Park.</strong>
+            <div class="note">(From Cleveland: arrive ~10:30 AM — full morning at falls!)</div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">3:00 PM</div>
+          <div class="timeline-content">
+            <strong>✅ Check in — SureStay Plus</strong>, 9100 Niagara Falls Blvd
+            <div class="note">☎ 716-297-9902 · Check-in from 3:00 PM</div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">4:00 PM</div>
+          <div class="timeline-content">
+            <strong>⛵ Maid of the Mist</strong> — everyone gets soaked! Bring a change of clothes.
+            <div class="note">Book at maidofthemist.com — 4:00 PM boat</div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">6:30 PM</div>
+          <div class="timeline-content">Freshen up at hotel. Dinner near the falls.</div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">9:30 PM</div>
+          <div class="timeline-content">
+            🚶 Walk to <strong>Prospect Point or Terrapin Point</strong> — US side fireworks viewing
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">10:00 PM</div>
+          <div class="timeline-content">
+            <strong>🎆 Fireworks over the Falls</strong> — free, nightly, spectacular!
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">10:30 PM</div>
+          <div class="timeline-content">Drive back to hotel (~10 min). 🏨 SureStay Plus.</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- DAY 4 -->
+    <div class="day-block">
+      <div class="day-header">
+        <div class="day-number">04</div>
+        <div class="day-info">
+          <div class="day-date">Thursday, June 4</div>
+          <div class="day-title">Niagara → New York City</div>
+          <div class="day-route">Niagara Falls, NY → I-90 E → I-78 E → Staten Island, NY</div>
+        </div>
+      </div>
+      <ul class="timeline">
+        <li class="timeline-item">
+          <div class="timeline-time">7:00 AM</div>
+          <div class="timeline-content">
+            🌅 Early morning at the falls — mist, sunrise, no crowds. <strong>Best photos of the whole trip.</strong>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">9:00 AM</div>
+          <div class="timeline-content">Breakfast</div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">10:00 AM</div>
+          <div class="timeline-content">
+            <strong>🌊 Cave of the Winds</strong> — walk to the base of Bridal Veil Falls. Waterproof gear provided. Kids love this.
+            <div class="note">Book at niagarafallsstatepark.com</div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">12:00 PM</div>
+          <div class="timeline-content">
+            🎡 <strong>Clifton Hill</strong> — lunch + arcades + attractions. Fun for everyone.
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">2:00 PM</div>
+          <div class="timeline-content">
+            🎡 <strong>Niagara SkyWheel</strong> — aerial views of both falls
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">3:30 PM</div>
+          <div class="timeline-content">Checkout. Pack up. Checkout by 11 AM was earlier — luggage already in car.</div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">4:00 PM</div>
+          <div class="timeline-content">
+            <strong>🚗 Depart Niagara</strong> — I-90 East → I-78 East through NJ → Staten Island
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">6:00 PM</div>
+          <div class="timeline-content">Rest stop — Pennsylvania / New Jersey</div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">~7:30 PM</div>
+          <div class="timeline-content">Cross into Staten Island via <strong>Goethals Bridge</strong></div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">~8:00 PM</div>
+          <div class="timeline-content">
+            <strong>✅ Check in — Hilton Garden Inn Staten Island</strong>
+            <div class="note">1100 South Ave · ☎ 718-477-2400 · Check-in from 4 PM (late arrival fine)</div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">8:30 PM</div>
+          <div class="timeline-content">
+            🚢 Drive to <strong>St. George Ferry Terminal</strong> (~15 min). Board the <strong>free Staten Island Ferry</strong> → Manhattan (25 min). Great harbor views at night!
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">9:30 PM</div>
+          <div class="timeline-content">
+            <strong>🌆 Times Square</strong> — subway uptown (2 stops from Whitehall). Lights, energy, street performers. Grab dinner or dessert.
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">11:00 PM</div>
+          <div class="timeline-content">Ferry back to St. George → drive to hotel. 🏨 Hilton Garden Inn.</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- DAY 5 -->
+    <div class="day-block">
+      <div class="day-header">
+        <div class="day-number">05</div>
+        <div class="day-info">
+          <div class="day-date">Friday, June 5</div>
+          <div class="day-title">New York City → Fly Home</div>
+          <div class="day-route">Staten Island → Manhattan → LGA → ATL → Cumming</div>
+        </div>
+      </div>
+      <ul class="timeline">
+        <li class="timeline-item">
+          <div class="timeline-time">7:30 AM</div>
+          <div class="timeline-content">Breakfast at hotel</div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">8:00 AM</div>
+          <div class="timeline-content">
+            <strong>🚗 Drive rental next door — Avis, 1120 South Ave</strong> (2-min drive). Drop by 12 PM. ✅
+            <div class="note">☎ 718-698-1470 · Open Fri 7:00 AM–6:00 PM</div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">8:20 AM</div>
+          <div class="timeline-content">🚕 Uber to St. George Ferry Terminal (~$12, 15 min)</div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">8:45 AM</div>
+          <div class="timeline-content">
+            <strong>🚢 Free Staten Island Ferry</strong> → Battery Park, Manhattan (25 min)
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">9:10 AM</div>
+          <div class="timeline-content">Arrive Battery Park — walk 2 min to Statue of Liberty terminal</div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">9:30 AM</div>
+          <div class="timeline-content">
+            <strong>⛴️ Statue of Liberty</strong> — first ferry to Liberty Island. Allow 3 hours.
+            <div class="note">Book at cityexperiences.com — 9:30 AM boat</div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">1:00 PM</div>
+          <div class="timeline-content">Back at Battery Park</div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">1:30 PM</div>
+          <div class="timeline-content">🚇 Subway → 34th St (~20 min, ~$3/person)</div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">2:00 PM</div>
+          <div class="timeline-content">🍕 Lunch in Midtown NYC</div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">4:00 PM</div>
+          <div class="timeline-content">
+            <strong>🏙️ Empire State Building</strong> — 86th floor observation deck. Views over all of NYC.
+            <div class="note">Book timed entry at esbnyc.com — 4:00 PM slot</div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">6:00 PM</div>
+          <div class="timeline-content">🚇 Subway/Uber to LaGuardia Airport LGA (~20–25 min)</div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">6:20 PM</div>
+          <div class="timeline-content">Arrive LGA. Check in. Security.</div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">6:49 PM</div>
+          <div class="timeline-content">
+            <strong>✈️ Frontier F93453 departs LGA</strong>
+            <div class="note">Confirmation: XK4URQ · Nonstop · 2h 56m</div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">9:56 PM</div>
+          <div class="timeline-content">Land Atlanta (ATL)</div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-time">~11:45 PM</div>
+          <div class="timeline-content"><strong>🏠 Home in Cumming ✅</strong> — Uber/Lyft → GA-400 North</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STILL TO BOOK -->
+  <div class="section">
+    <div class="section-label">Action needed</div>
+    <div class="section-title">Still to Book</div>
+    <ul class="todo-list">
+      <li class="todo-item">
+        <div class="todo-priority priority-red"></div>
+        <div class="todo-content">
+          <div class="todo-what">⛴️ Statue of Liberty Ferry — 5 tickets</div>
+          <div class="todo-where">cityexperiences.com</div>
+          <div class="todo-when">Fri Jun 5 · 9:30 AM first boat · Book NOW — sells out weeks ahead</div>
+        </div>
+      </li>
+      <li class="todo-item">
+        <div class="todo-priority priority-red"></div>
+        <div class="todo-content">
+          <div class="todo-what">🏙️ Empire State Building — 5 tickets</div>
+          <div class="todo-where">esbnyc.com</div>
+          <div class="todo-when">Fri Jun 5 · 4:00 PM timed entry · Book tonight</div>
+        </div>
+      </li>
+      <li class="todo-item">
+        <div class="todo-priority priority-red"></div>
+        <div class="todo-content">
+          <div class="todo-what">⛵ Maid of the Mist — 5 tickets</div>
+          <div class="todo-where">maidofthemist.com</div>
+          <div class="todo-when">Wed Jun 3 · 4:00 PM boat · Book tonight</div>
+        </div>
+      </li>
+      <li class="todo-item">
+        <div class="todo-priority priority-yellow"></div>
+        <div class="todo-content">
+          <div class="todo-what">🌊 Cave of the Winds — 5 tickets</div>
+          <div class="todo-where">niagarafallsstatepark.com</div>
+          <div class="todo-when">Thu Jun 4 · 10:00 AM · Book this week</div>
+        </div>
+      </li>
+      <li class="todo-item">
+        <div class="todo-priority priority-yellow"></div>
+        <div class="todo-content">
+          <div class="todo-what">🛏 Tuesday Night Hotel — 2 rooms</div>
+          <div class="todo-where">Hotels.com app (book on the road)</div>
+          <div class="todo-when">Target: Columbus or Cleveland, OH · Flexible stop</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ROUTE OVERVIEW -->
+  <div class="section">
+    <div class="section-label">Navigation</div>
+    <div class="section-title">Route Overview</div>
+    <div class="route-banner">
+      <div style="margin-bottom:10px; font-size:11px; color:#888; letter-spacing:0.1em;">DRIVE UP — I-75 NORTH CORRIDOR</div>
+      <div class="route-line">
+        <span class="city">Cumming GA</span>
+        <span class="arrow">→</span>
+        <span class="road">GA-400 · I-285 · I-75 N</span>
+        <span class="arrow">→</span>
+        <span class="city">Chattanooga</span>
+        <span class="arrow">→</span>
+        <span class="city">Knoxville</span>
+        <span class="arrow">→</span>
+        <span class="city">Cincinnati</span>
+        <span class="arrow">→</span>
+        <span class="city">Columbus/Cleveland</span>
+        <span class="road">(overnight)</span>
+        <span class="arrow">→</span>
+        <span class="road">I-90 E</span>
+        <span class="arrow">→</span>
+        <span class="city">Niagara Falls NY</span>
+      </div>
+      <div style="margin: 14px 0 10px; font-size:11px; color:#888; letter-spacing:0.1em;">DRIVE MIDDLE — NIAGARA TO NYC</div>
+      <div class="route-line">
+        <span class="city">Niagara Falls NY</span>
+        <span class="arrow">→</span>
+        <span class="road">I-90 E · I-78 E</span>
+        <span class="arrow">→</span>
+        <span class="city">Staten Island NY</span>
+        <span class="road">(Goethals Bridge)</span>
+      </div>
+      <div style="margin: 14px 0 10px; font-size:11px; color:#888; letter-spacing:0.1em;">FLY HOME</div>
+      <div class="route-line">
+        <span class="city">LGA</span>
+        <span class="arrow">→</span>
+        <span class="road">Frontier F93453 · 6:49 PM</span>
+        <span class="arrow">→</span>
+        <span class="city">ATL 9:56 PM</span>
+        <span class="arrow">→</span>
+        <span class="road">Uber GA-400 N</span>
+        <span class="arrow">→</span>
+        <span class="city">Cumming</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY ADDRESSES -->
+  <div class="section">
+    <div class="section-label">Quick reference</div>
+    <div class="section-title">Key Addresses</div>
+    <div class="address-grid">
+      <div class="address-card">
+        <div class="address-label">Avis Pickup</div>
+        <div class="address-name">Avis — Cumming GA</div>
+        <div class="address-street">518 Atlanta Rd<br>Cumming, GA 30040</div>
+        <div class="address-phone">☎ 678-341-6857</div>
+      </div>
+      <div class="address-card">
+        <div class="address-label">Avis Drop Off</div>
+        <div class="address-name">Avis — Staten Island</div>
+        <div class="address-street">1120 South Ave<br>Staten Island, NY 10314</div>
+        <div class="address-phone">☎ 718-698-1470</div>
+      </div>
+      <div class="address-card">
+        <div class="address-label">Night 2 — Niagara</div>
+        <div class="address-name">SureStay Plus Best Western</div>
+        <div class="address-street">9100 Niagara Falls Blvd<br>Niagara Falls, NY 14304</div>
+        <div class="address-phone">☎ 716-297-9902</div>
+      </div>
+      <div class="address-card">
+        <div class="address-label">Night 3 — NYC</div>
+        <div class="address-name">Hilton Garden Inn SI</div>
+        <div class="address-street">1100 South Ave<br>Staten Island, NY 10314</div>
+        <div class="address-phone">☎ 718-477-2400</div>
+      </div>
+      <div class="address-card">
+        <div class="address-label">Ferry Terminal</div>
+        <div class="address-name">St. George Ferry</div>
+        <div class="address-street">1 Bay St<br>Staten Island, NY 10301</div>
+        <div class="address-phone">Free · Runs 24/7</div>
+      </div>
+      <div class="address-card">
+        <div class="address-label">Return Flight</div>
+        <div class="address-name">LaGuardia Airport (LGA)</div>
+        <div class="address-street">Queens, NY 11371</div>
+        <div class="address-phone">Frontier · Conf: XK4URQ</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COST -->
+  <div class="section">
+    <div class="section-label">Budget</div>
+    <div class="section-title">Remaining Estimated Spend</div>
+    <table class="cost-table">
+      <tr><td>Tuesday night hotel (2 rooms)</td><td>~$150–200</td></tr>
+      <tr><td>Statue of Liberty × 5</td><td>~$128–163</td></tr>
+      <tr><td>Empire State Building × 5</td><td>~$220–395</td></tr>
+      <tr><td>Maid of the Mist × 5</td><td>~$135</td></tr>
+      <tr><td>Cave of the Winds × 5</td><td>~$75–100</td></tr>
+      <tr><td>Gas (~1,250 miles total)</td><td>~$160–200</td></tr>
+      <tr><td>Tolls (Ohio Turnpike + NJ + Goethals)</td><td>~$30–50</td></tr>
+      <tr><td>Meals — 5 days × 5 people</td><td>~$500–750</td></tr>
+      <tr><td>NYC ground transport (ferry free + subway + Uber)</td><td>~$80–100</td></tr>
+      <tr class="total"><td>Total remaining to spend</td><td>~$1,478–2,093</td></tr>
+    </table>
+  </div>
+
+  <!-- APPS -->
+  <div class="section">
+    <div class="section-label">Tech</div>
+    <div class="section-title">Apps to Have Ready</div>
+    <div class="apps-row">
+      <div class="app-chip">🗺️ Google Maps <span style="color:#999; font-size:11px; font-weight:300;">(download offline NY + Niagara)</span></div>
+      <div class="app-chip">✈️ Frontier App <span style="color:#999; font-size:11px; font-weight:300;">mobile boarding pass</span></div>
+      <div class="app-chip">🏨 Hilton Honors <span style="color:#999; font-size:11px; font-weight:300;">hotel check-in</span></div>
+      <div class="app-chip">🚇 Transit App <span style="color:#999; font-size:11px; font-weight:300;">NYC subway</span></div>
+      <div class="app-chip">🛏 Hotels.com <span style="color:#999; font-size:11px; font-weight:300;">Tue night flexible stop</span></div>
+      <div class="app-chip">🚕 Uber <span style="color:#999; font-size:11px; font-weight:300;">Staten Island → ferry</span></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div>Niagara + NYC · June 1–5, 2026 · <span>5 Travelers from Cumming, GA</span></div>
+  <div style="margin-top:8px;">🌊 Drive up via I-75 · 🗽 Fly home from LGA · Have an amazing trip!</div>
+</footer>
+
+</body>
+</html>
