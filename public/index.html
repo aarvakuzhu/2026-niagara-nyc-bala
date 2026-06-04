@@ -210,6 +210,21 @@
       margin-top: 4px;
       font-size: 13px;
     }
+    .walking-block {
+      background: #f0f7ff;
+      border-left: 3px solid var(--water-light);
+      border-radius: 0 6px 6px 0;
+      padding: 10px 12px;
+      margin: 8px 0 4px;
+      display: grid;
+      gap: 6px;
+    }
+    .walk-stop {
+      font-size: 13px;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+    .walk-stop strong { color: var(--water); }
 
     /* FLEX STOP TABLE */
     .flex-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 16px 0; }
@@ -578,15 +593,29 @@
         </li>
         <li class="timeline-item">
           <div class="tl-time">7:00 PM</div>
-          <div class="tl-content">🚢 Drive to <strong>St. George Ferry Terminal</strong> (~15 min) → board <strong>free Staten Island Ferry</strong> to Manhattan (25 min)</div>
+          <div class="tl-content">🚢 Drive to <strong>St. George Ferry Terminal</strong> (~15 min) → board <strong>free Staten Island Ferry</strong> to Manhattan (25 min)<div class="tl-note">🗺 Ferry runs every 15–30 min · No ticket needed · Sit on the right side for Statue of Liberty views at night</div></div>
         </li>
         <li class="timeline-item">
-          <div class="tl-time">8:00 PM</div>
-          <div class="tl-content"><strong>🌆 Times Square</strong> — subway uptown from Whitehall. Lights, energy, street performers.</div>
+          <div class="tl-time">7:55 PM</div>
+          <div class="tl-content">Arrive <strong>Whitehall Terminal, Battery Park</strong> · Take 🚇 <strong>1 Train uptown</strong> from South Ferry station → Times Square–42nd St (10 min, 9 stops)<div class="tl-note">📱 Use Transit App or Google Maps · Tap MetroCard or contactless card/phone to enter</div></div>
+        </li>
+        <li class="timeline-item">
+          <div class="tl-time">8:10 PM</div>
+          <div class="tl-content"><strong>🌆 Times Square — 42nd &amp; Broadway</strong><br>
+          <div class="walking-block">
+            <div class="walk-stop">📍 <strong>Start: TKTS Red Steps</strong> (Father Duffy Square, 47th St) — elevated red bleacher steps with sweeping view over all of Times Square. Best photo spot.</div>
+            <div class="walk-stop">👟 Walk south on Broadway → <strong>Times Square bowtie</strong> (44th–46th St) — the heart of the square. Giant LED billboards, street performers, full energy.</div>
+            <div class="walk-stop">👟 Continue south → <strong>42nd St — Restaurant Row</strong> — dozens of restaurants and fast food. Good spot for a late dinner or dessert.</div>
+            <div class="walk-stop">👟 Walk east 2 blocks on 42nd St → <strong>Bryant Park</strong> (42nd &amp; 6th Ave, 5 min) — beautiful lit-up green space at night, free, family friendly.</div>
+            <div class="walk-stop">👟 Walk north on 5th Ave → <strong>New York Public Library</strong> (42nd &amp; 5th, 2 min from Bryant Park) — stunning Beaux-Arts façade, great for photos at night.</div>
+            <div class="walk-stop">👟 Continue north on 5th Ave → <strong>Rockefeller Center</strong> (49th &amp; 5th, 10 min walk) — iconic Art Deco plaza, NBC Studios, Top of the Rock if you want a night view alternative to Empire State.</div>
+            <div class="walk-stop">👟 Walk west back to Broadway → <strong>Broadway Theater District</strong> (44th–52nd St) — marquee lights of Hamilton, Lion King, Chicago and more. No ticket needed to admire the buzz.</div>
+          </div>
+          <div class="tl-note">🕐 Total walking loop ~1.5 miles · About 45–60 min at a relaxed pace · All flat, well-lit, and safe at night</div></div>
         </li>
         <li class="timeline-item">
           <div class="tl-time">10:00 PM</div>
-          <div class="tl-content">Ferry back to St. George → drive to hotel 🏨</div>
+          <div class="tl-content">🚇 <strong>1 Train downtown</strong> from Times Square–42nd St → South Ferry (10 min) → free ferry back to St. George → drive to hotel 🏨</div>
         </li>
       </ul>
     </div>
@@ -613,31 +642,57 @@
         </li>
         <li class="timeline-item">
           <div class="tl-time">8:20 AM</div>
-          <div class="tl-content">🚕 Uber to St. George Ferry Terminal (~15 min)</div>
+          <div class="tl-content">🚕 Uber to <strong>St. George Ferry Terminal</strong> (~15 min)<div class="tl-note">📍 1 Bay St, Staten Island · Uber from hotel is easiest with luggage stored at Hilton bell desk</div></div>
         </li>
         <li class="timeline-item">
           <div class="tl-time">8:45 AM</div>
-          <div class="tl-content"><strong>🚢 Free Staten Island Ferry</strong> → Battery Park, Manhattan (25 min)</div>
+          <div class="tl-content"><strong>🚢 Free Staten Island Ferry</strong> → Whitehall Terminal, Battery Park (25 min)<div class="tl-note">Runs every 15–30 min · No ticket · Outdoor deck has great views of lower Manhattan skyline on approach</div></div>
+        </li>
+        <li class="timeline-item">
+          <div class="tl-time">9:10 AM</div>
+          <div class="tl-content">Arrive Battery Park · Walk 2 min to <strong>Statue of Liberty / Castle Clinton ticket area</strong></div>
         </li>
         <li class="timeline-item">
           <div class="tl-time">9:30 AM</div>
-          <div class="tl-content"><strong>⛴️ Statue of Liberty</strong> — first ferry to Liberty Island. Allow 3 hours.<div class="tl-note">Book at cityexperiences.com — 9:30 AM boat · Book NOW, sells out fast</div></div>
+          <div class="tl-content"><strong>⛴️ Statue of Liberty ferry</strong> — to Liberty Island. Allow 3 hours for ferry + island.<div class="tl-note">Book at cityexperiences.com · Bring ID · Security screening at boarding · Wear comfortable shoes for island walking</div></div>
+        </li>
+        <li class="timeline-item">
+          <div class="tl-time">12:30 PM</div>
+          <div class="tl-content">Back at Battery Park · <strong>Optional 15-min walk along the waterfront</strong> to see the Wall Street bull statue (Charging Bull, Broadway &amp; Morris St)</div>
         </li>
         <li class="timeline-item">
           <div class="tl-time">1:00 PM</div>
-          <div class="tl-content">Back at Battery Park → 🚇 Subway to 34th St (~20 min)</div>
+          <div class="tl-content">🚇 <strong>Take the 4/5 Express train</strong> from Bowling Green station → 34th St–Penn Station (12 min, much faster than the 1 Train)<div class="tl-note">📍 Bowling Green station is 3 min walk from Battery Park · Express skips many stops · Use same MetroCard tap</div></div>
         </li>
         <li class="timeline-item">
-          <div class="tl-time">2:00 PM</div>
-          <div class="tl-content">🍕 Lunch in Midtown NYC</div>
+          <div class="tl-time">1:20 PM</div>
+          <div class="tl-content">🍕 <strong>Lunch in Midtown</strong> — good options near 34th St:<div class="tl-note">🥪 Pennsy Food Hall (under MSG) · 🍕 Joe's Pizza (W 34th) · 🥗 Whole Foods hot bar (7th &amp; 24th) · 🍜 Kung Fu Little Steamed Buns (W 33rd) — all within 5 min walk</div></div>
+        </li>
+        <li class="timeline-item">
+          <div class="tl-time">2:30 PM</div>
+          <div class="tl-content">
+            <strong>🚶 Afternoon Walk — 34th St to Empire State Building</strong>
+            <div class="walking-block">
+              <div class="walk-stop">📍 <strong>Start: Herald Square</strong> (34th &amp; Broadway) — Macy's flagship store, classic NYC corner.</div>
+              <div class="walk-stop">👟 Walk east on 34th St → <strong>Empire State Building</strong> (34th &amp; 5th Ave, 5 min walk) — check in for your 4pm timed entry. Browse the lobby Art Deco details while you wait.</div>
+              <div class="walk-stop">👟 After ESB walk north on 5th Ave → <strong>New York Public Library</strong> (42nd &amp; 5th, 8 min) — iconic stone lions "Patience" and "Fortitude" at the entrance. Free to enter.</div>
+              <div class="walk-stop">👟 Continue north → <strong>Bryant Park</strong> (42nd &amp; 6th, 2 min) — sit, relax, people-watch. Free WiFi.</div>
+              <div class="walk-stop">👟 Walk west on 42nd → <strong>Times Square</strong> (42nd &amp; Broadway, 5 min) — one last look before heading to the airport. Great for final photos in daylight.</div>
+            </div>
+            <div class="tl-note">🕐 Total walk ~0.8 miles · Flat, easy, all on the grid · 5th Ave is the spine — impossible to get lost</div>
+          </div>
         </li>
         <li class="timeline-item">
           <div class="tl-time">4:00 PM</div>
-          <div class="tl-content"><strong>🏙️ Empire State Building</strong> — 86th floor observation deck<div class="tl-note">Book timed entry at esbnyc.com — 4:00 PM slot</div></div>
+          <div class="tl-content"><strong>🏙️ Empire State Building</strong> — 86th floor observation deck. Views over all of Manhattan.<div class="tl-note">Book timed entry at esbnyc.com — 4:00 PM slot · Allow 1 hr · Gift shop on way out</div></div>
         </li>
         <li class="timeline-item">
-          <div class="tl-time">6:00 PM</div>
-          <div class="tl-content">🚇 Subway/Uber to LaGuardia Airport LGA (~20–25 min)</div>
+          <div class="tl-time">5:30 PM</div>
+          <div class="tl-content">🚇 <strong>E or F Train from 5th Ave–53rd St → Jackson Heights–Roosevelt Ave</strong>, then AirTrain OR take <strong>M60 Select Bus</strong> from 106th &amp; Broadway → LGA (~35 min total)<div class="tl-note">📱 Easiest: Uber from Times Square to LGA (~20–25 min, more reliable with flight timing) · Both options work, Uber gives more control</div></div>
+        </li>
+        <li class="timeline-item">
+          <div class="tl-time">6:10 PM</div>
+          <div class="tl-content">Arrive LGA · Check in · Security · <strong>Terminal B</strong> for Frontier</div>
         </li>
         <li class="timeline-item">
           <div class="tl-time">6:49 PM</div>
@@ -666,15 +721,16 @@
       </li>
       <li class="todo-item">
         <div class="todo-dot dot-red"></div>
+        <div><div class="todo-what">⛵ Maid of the Mist — 5 tickets</div><div class="todo-where">maidofthemist.com</div><div class="todo-when">Wed Jun 3 · 4:00 PM boat · Book tonight</div></div>
+      </li>
+      <li class="todo-item">
+        <div class="todo-dot dot-red"></div>
         <div><div class="todo-what">🏙️ Empire State Building — 5 tickets</div><div class="todo-where">esbnyc.com</div><div class="todo-when">Fri Jun 5 · 4:00 PM timed entry · Book tonight</div></div>
       </li>
       <li class="todo-item">
         <div class="todo-dot dot-yellow"></div>
         <div><div class="todo-what">🌊 Cave of the Winds — 5 tickets</div><div class="todo-where">niagarafallsstatepark.com</div><div class="todo-when">Wed Jun 3 · ~2:00 PM · Book this week</div></div>
-      </li><div class="todo-where">maidofthemist.com</div><div class="todo-when">Wed Jun 3 · 4:00 PM boat · Book tonight</div></div>
       </li>
-
-
     </ul>
   </div>
 
